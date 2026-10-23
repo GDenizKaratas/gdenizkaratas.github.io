@@ -246,7 +246,37 @@ export const roles: Role[] = [
     period: 'Feb 2020 – Jun 2025',
     logo: { kind: 'image', src: 'images/logos/arteon.png', dark: true },
     summary:
-      'Owned backend architecture, database design and on-premises deployments in an Nx monorepo, working directly with clients. Built a no-code API platform, a dynamic SQL reporting engine with Redis caching, MES and ERP integrations, and a Gantt-based project tool.',
+      'Owned backend architecture, database design and deployments across internal and client projects in an Nx monorepo, working directly with clients. Started as an intern in Feb 2020.',
+    highlights: [
+      {
+        name: 'No-code application platform',
+        text: 'Built its core: a visual data-model designer and a Node.js service that generates JWT-protected CRUD APIs from user-defined models.',
+      },
+      {
+        name: 'Reporting & analytics engine',
+        text: 'Runs dynamic, user-defined SQL queries on Oracle and MySQL, with Redis caching and Angular dashboards.',
+      },
+      {
+        name: 'MES & ERP integrations',
+        text: 'Moved production data between factory systems and business workflows.',
+      },
+      {
+        name: 'Project management platform',
+        text: 'An interactive Gantt chart in Angular with real-time task tracking and a REST API backend.',
+      },
+      {
+        name: 'Automation jobs',
+        text: 'Scheduled background jobs for automation, monitoring and automated reporting, reused across client projects.',
+      },
+      {
+        name: 'Social media scheduling',
+        text: 'Started the platform and its third-party API integrations; later continued it independently as Content Pilot.',
+      },
+      {
+        name: 'On-premises deployments',
+        text: 'Deployed and maintained apps on customer-managed Linux and Windows (IIS) servers with Nginx, PM2 and Docker in isolated environments.',
+      },
+    ],
   },
   {
     title: 'Long-term Intern',
