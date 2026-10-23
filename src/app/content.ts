@@ -158,6 +158,26 @@ export const projects: Project[] = [
     links: [],
   },
   {
+    name: 'MES & ERP integrations',
+    year: '2020–25',
+    image: 'images/projects/mes.png',
+    imageAlt: 'Factory MES and ERP stay in sync',
+    client: arteon,
+    summary: 'Moves production data between factory systems and business workflows.',
+    tech: [T.angular, T.node],
+    links: [],
+  },
+  {
+    name: 'Project management platform',
+    year: '2020–25',
+    image: 'images/projects/gantt.png',
+    imageAlt: 'A Gantt chart with three tasks',
+    client: arteon,
+    summary: 'My first product after the MES work: an interactive Gantt chart for planning tasks and dependencies, with real-time task tracking and a REST API backend.',
+    tech: [T.angular, T.node],
+    links: [],
+  },
+  {
     name: 'No-code API platform',
     year: '2020–25',
     image: 'images/projects/nocode.png',
@@ -175,26 +195,6 @@ export const projects: Project[] = [
     client: arteon,
     summary: 'Runs dynamic, user-defined SQL on Oracle and MySQL, with Redis caching and Angular dashboards.',
     tech: [T.angular, T.node, T.mysql, T.redis],
-    links: [],
-  },
-  {
-    name: 'MES & ERP integrations',
-    year: '2020–25',
-    image: 'images/projects/mes.png',
-    imageAlt: 'Factory MES and ERP stay in sync',
-    client: arteon,
-    summary: 'Moves production data between factory systems and business workflows.',
-    tech: [T.angular, T.node],
-    links: [],
-  },
-  {
-    name: 'Project planner with Gantt',
-    year: '2020–25',
-    image: 'images/projects/gantt.png',
-    imageAlt: 'A Gantt chart with three tasks',
-    client: arteon,
-    summary: 'An interactive Gantt chart in Angular with real-time task tracking and a REST API backend.',
-    tech: [T.angular, T.node],
     links: [],
   },
   {
@@ -249,20 +249,20 @@ export const roles: Role[] = [
       'Owned backend architecture, database design and deployments across internal and client projects in an Nx monorepo, working directly with clients. Started as an intern in Feb 2020.',
     highlights: [
       {
+        name: 'MES & ERP integrations',
+        text: 'Moved production data between factory systems and business workflows.',
+      },
+      {
+        name: 'Project management platform',
+        text: 'My first product after the MES work: an interactive Gantt chart in Angular for planning tasks and dependencies, with real-time task tracking and a REST API backend.',
+      },
+      {
         name: 'No-code application platform',
         text: 'Built its core: a visual data-model designer and a Node.js service that generates JWT-protected CRUD APIs from user-defined models.',
       },
       {
         name: 'Reporting & analytics engine',
         text: 'Runs dynamic, user-defined SQL queries on Oracle and MySQL, with Redis caching and Angular dashboards.',
-      },
-      {
-        name: 'MES & ERP integrations',
-        text: 'Moved production data between factory systems and business workflows.',
-      },
-      {
-        name: 'Project management platform',
-        text: 'An interactive Gantt chart in Angular with real-time task tracking and a REST API backend.',
       },
       {
         name: 'Automation jobs',
