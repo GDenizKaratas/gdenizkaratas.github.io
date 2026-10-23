@@ -163,8 +163,8 @@ h1, h2, h3, p, ul, figure { margin: 0; }
 .org { color: var(--muted); }
 .highlights { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; }
 .highlights li { display: flex; gap: 10px; }
-.highlights li::before { content: ''; flex-shrink: 0; width: 8px; height: 8px; margin-top: 8px; border-radius: 50%; background: #c9d3df; }
-.highlights li.current::before { background: var(--accent); }
+.highlights li::before { content: ''; flex-shrink: 0; width: 8px; height: 8px; margin-top: 8px; border-radius: 50%; background: #9cc3ec; }
+.highlights li.current::before { background: var(--accent); box-shadow: 0 0 0 3px rgb(49 120 198 / 0.18); }
 .now { font-size: 12px; font-weight: 800; color: var(--accent-ink); }
 
 /* writing */
