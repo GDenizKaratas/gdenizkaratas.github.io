@@ -1,0 +1,81 @@
+<div class="page" style="--sky: url(images/sky.jpg)">
+  <div class="stage">
+    <section class="card profile" aria-label="About me">
+      <div class="profile-head">
+        <img class="avatar" [src]="profile.photo" [alt]="'Portrait of ' + profile.name" width="160" height="160" />
+        <div class="identity">
+          <p class="eyebrow">WHO AM I?</p>
+          <h1>{{ profile.name }}</h1>
+          <p class="role">{{ profile.role }}</p>
+          <p class="tagline">{{ profile.tagline }}</p>
+          <p class="location">{{ profile.location }}</p>
+        </div>
+      </div>
+
+      <div class="bio">
+        @for (line of profile.bio; track line) {
+          <p>{{ line }}</p>
+        }
+      </div>
+
+      <div class="stack-block">
+        <p class="eyebrow">CORE STACK</p>
+        <div class="stack-grid">
+          @for (tech of profile.stack; track tech.name) {
+            <span><img [src]="tech.icon" alt="" width="20" height="20" />{{ tech.name }}</span>
+          }
+        </div>
+        <div class="skills">
+          @for (skill of profile.skills; track skill) {
+            <span>{{ skill }}</span>
+          }
+        </div>
+      </div>
+
+      <div class="links">
+        <a class="btn btn-dark" [href]="profile.github" target="_blank" rel="noopener">
+          <img src="images/icons/github-white.svg" alt="" />GitHub
+        </a>
+        <a class="btn btn-line" [href]="profile.linkedin" target="_blank" rel="noopener">
+          <img src="images/icons/linkedin.svg" alt="" />LinkedIn
+        </a>
+        <a class="btn btn-line" [href]="'mailto:' + profile.email">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg>
+          Let's talk
+        </a>
+        <a class="btn btn-blue cv-left" [href]="profile.cv" target="_blank" rel="noopener">See my CV</a>
+      </div>
+    </section>
+
+    <div class="work">
+      <div class="earrow">
+        <nav class="ears" aria-label="Sections">
+          @for (tab of tabs; track tab.id) {
+            <button class="ear" type="button" [attr.aria-pressed]="picked() === tab.id" (click)="pick(tab.id)">
+              {{ tab.label }}
+            </button>
+          }
+        </nav>
+        <a class="cv-ear" [href]="profile.cv" target="_blank" rel="noopener" title="Opens my one-page CV (PDF)">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"></path><path d="M7 10l5 5 5-5"></path><path d="M5 21h14"></path></svg>
+          See my CV
+        </a>
+      </div>
+
+      <section class="card panel-card" aria-label="Work" aria-live="polite">
+        <div class="flipwrap">
+          <div class="flipper" [class.turning]="turning()">
+            <div class="scroll">
+              @switch (shown()) {
+                @case ('projects') { <app-projects-panel /> }
+                @case ('experience') { <app-experience-panel /> }
+                @case ('writing') { <app-writing-panel /> }
+                @case ('books') { <app-books-panel /> }
+              }
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

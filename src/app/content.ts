@@ -1,0 +1,323 @@
+// All site copy lives here. Components only render it.
+
+export interface Tech {
+  name: string;
+  icon: string;
+}
+
+export interface ProjectLink {
+  label: string;
+  url: string;
+}
+
+export interface Project {
+  name: string;
+  year: string;
+  image: string;
+  imageAlt: string;
+  summary: string;
+  tech: Tech[];
+  proof?: string;
+  status?: string;
+  client?: string;
+  links: ProjectLink[];
+}
+
+export interface Role {
+  title: string;
+  org: string;
+  period: string;
+  logo: { kind: 'image'; src: string; dark?: boolean } | { kind: 'text'; text: string };
+  summary?: string;
+  highlights?: { name: string; text: string; current?: boolean }[];
+}
+
+export interface Education {
+  title: string;
+  org: string;
+  period: string;
+  note?: string;
+}
+
+export interface Post {
+  platform: 'LinkedIn post' | 'Medium article';
+  date: string;
+  title: string;
+  summary: string;
+  image: string;
+  url: string;
+}
+
+export interface Book {
+  title: string;
+  author: string;
+  cover: string;
+  note: string;
+}
+
+const icon = (name: string, file: string): Tech => ({ name, icon: `images/icons/${file}.svg` });
+
+const T = {
+  typescript: icon('TypeScript', 'typescript'),
+  python: icon('Python', 'python'),
+  node: icon('Node.js', 'nodedotjs'),
+  angular: icon('Angular', 'angular'),
+  nest: icon('NestJS', 'nestjs'),
+  postgres: icon('PostgreSQL', 'postgresql'),
+  docker: icon('Docker', 'docker'),
+  openai: icon('OpenAI', 'openai'),
+  anthropic: icon('Anthropic', 'anthropic'),
+  gemini: icon('Gemini · ADK', 'googlegemini'),
+  redis: icon('Redis', 'redis'),
+  mysql: icon('MySQL', 'mysql'),
+  shopify: icon('Shopify', 'shopify'),
+  actions: icon('GitHub Actions', 'githubactions'),
+  prisma: icon('Prisma', 'prisma'),
+  elevenlabs: icon('ElevenLabs', 'elevenlabs'),
+  ffmpeg: icon('FFmpeg', 'ffmpeg'),
+  claude: icon('Claude', 'claude'),
+  rust: icon('Rust', 'rust'),
+  tauri: icon('Tauri', 'tauri'),
+};
+
+export const profile = {
+  name: 'Güngör Deniz Karataş',
+  role: 'AI Engineer',
+  tagline: 'TypeScript · Python · AI agents',
+  location: 'Istanbul, Türkiye',
+  photo: 'images/profile.jpg',
+  bio: [
+    '5+ years building web apps, REST APIs and data-heavy business systems with Node.js, NestJS, Angular and SQL, owning backend architecture and deployments while working directly with clients.',
+    'Now I build AI agents with deterministic controls, human review and evals, and I measure what they do before I trust them.',
+  ],
+  stack: [T.typescript, T.python, T.node, T.angular, T.nest, T.postgres, T.docker, T.openai, T.anthropic, T.gemini],
+  skills: ['RAG', 'Tool calling', 'Agents', 'Evals'],
+  github: 'https://github.com/GDenizKaratas',
+  linkedin: 'https://www.linkedin.com/in/g-deniz-karatas',
+  email: 'karatas.gun@gmail.com',
+  cv: 'cv/gungor-deniz-karatas-cv.pdf',
+};
+
+const gh = (repo: string) => `https://github.com/GDenizKaratas/${repo}`;
+const arteon = 'Arteon · client work.';
+
+export const projects: Project[] = [
+  {
+    name: 'Bank Agent Lab',
+    year: '2026',
+    image: 'images/projects/bank-agent-lab.jpg',
+    imageAlt: 'All 4 automatic checks passed',
+    summary:
+      'An AI agent investigates flagged transactions through four read-only tools; deterministic checks score the risk, a human decides.',
+    tech: [T.python, T.gemini],
+    proof: 'RAG · eval set · 120+ tests',
+    links: [{ label: 'View code', url: gh('bank-agent-lab') }],
+  },
+  {
+    name: 'Multi-Channel Inventory Sync',
+    year: '2026',
+    image: 'images/projects/inventory.png',
+    imageAlt: 'Shopify and more channels share one stock count',
+    summary:
+      'Keeps one stock count in sync across sales channels, starting with Shopify, so a sale on one channel updates inventory everywhere.',
+    tech: [T.shopify, T.angular, T.nest, T.postgres, T.actions],
+    status: 'Working on',
+    links: [],
+  },
+  {
+    name: 'Content Pilot',
+    year: '2025',
+    image: 'images/projects/content.png',
+    imageAlt: 'Draft, schedule, publish to X, LinkedIn and Instagram',
+    summary:
+      'Multi-tenant SaaS: streamed AI content, OAuth publishing to X, LinkedIn and Instagram, plan quotas and billing.',
+    tech: [T.nest, T.angular, T.prisma, T.openai],
+    proof: '30+ Prisma models · CI',
+    links: [
+      { label: 'API', url: gh('nest-ai-pilot') },
+      { label: 'UI', url: gh('content-pilot-ui') },
+    ],
+  },
+  {
+    name: 'LLM Provider Layer',
+    year: '2025',
+    image: 'images/projects/provider.png',
+    imageAlt: 'One layer routes to OpenAI and falls back to Anthropic',
+    summary:
+      'One interface over OpenAI and Anthropic, with retry and fallback, so an outage or rate limit does not stop the workflow.',
+    tech: [T.typescript, T.openai, T.anthropic],
+    links: [],
+  },
+  {
+    name: 'Video Automation Pipeline',
+    year: '2025',
+    image: 'images/projects/video.png',
+    imageAlt: 'JSON to script to voice to mp4',
+    summary: 'Structured JSON in, publish-ready video out: LLM-written scripts, ElevenLabs voiceovers, FFmpeg rendering.',
+    tech: [T.node, T.openai, T.elevenlabs, T.ffmpeg],
+    links: [],
+  },
+  {
+    name: 'No-code API platform',
+    year: '2020–25',
+    image: 'images/projects/nocode.png',
+    imageAlt: 'A data model becomes a generated CRUD API',
+    client: arteon,
+    summary: 'A visual data-model designer and a Node.js service that generates JWT-protected CRUD APIs from user-defined models.',
+    tech: [T.angular, T.node],
+    links: [],
+  },
+  {
+    name: 'Reporting & analytics engine',
+    year: '2020–25',
+    image: 'images/projects/reporting.png',
+    imageAlt: 'User SQL runs through an engine into charts',
+    client: arteon,
+    summary: 'Runs dynamic, user-defined SQL on Oracle and MySQL, with Redis caching and Angular dashboards.',
+    tech: [T.angular, T.node, T.mysql, T.redis],
+    links: [],
+  },
+  {
+    name: 'MES & ERP integrations',
+    year: '2020–25',
+    image: 'images/projects/mes.png',
+    imageAlt: 'Factory MES and ERP stay in sync',
+    client: arteon,
+    summary: 'Moves production data between factory systems and business workflows.',
+    tech: [T.angular, T.node],
+    links: [],
+  },
+  {
+    name: 'Project planner with Gantt',
+    year: '2020–25',
+    image: 'images/projects/gantt.png',
+    imageAlt: 'A Gantt chart with three tasks',
+    client: arteon,
+    summary: 'An interactive Gantt chart in Angular with real-time task tracking and a REST API backend.',
+    tech: [T.angular, T.node],
+    links: [],
+  },
+  {
+    name: 'Teach Yourself AI',
+    year: '2026',
+    image: 'images/projects/teach-yourself-ai.jpg',
+    imageAlt: 'Progress panel: topics learned and study days',
+    summary: 'A personal tutor inside Claude Code: maps a learning path and brings topics back when they are due.',
+    tech: [T.python, T.claude],
+    links: [{ label: 'View code', url: gh('teach-yourself-ai') }],
+  },
+  {
+    name: 'timewent',
+    year: '2026',
+    image: 'images/projects/timewent.jpg',
+    imageAlt: 'timewent panel: where your time went in a session',
+    summary: 'A tiny, local-first time tracker for macOS. No timers, no labels: see where your time went.',
+    tech: [T.rust, T.tauri],
+    links: [{ label: 'View code', url: gh('timewent') }],
+  },
+];
+
+export const roles: Role[] = [
+  {
+    title: 'Independent Software Engineer',
+    org: 'Own products, remote',
+    period: 'Jun 2025 – now',
+    logo: { kind: 'text', text: 'GDK' },
+    summary: 'Client work and my own products, designed and built end to end.',
+    highlights: [
+      {
+        name: 'Multi-Channel Inventory Sync',
+        text: 'Keeps one stock count in sync across sales channels, starting with Shopify.',
+        current: true,
+      },
+      {
+        name: 'Bank Agent Lab',
+        text: 'AI agent for transaction risk review: four scoped, read-only tools, deterministic risk checks, RAG over policy documents, human review, audit logs and an evaluation set.',
+      },
+      {
+        name: 'Content Pilot',
+        text: 'Multi-tenant NestJS SaaS: JWT and RBAC, 30+ Prisma models, OAuth publishing to X, LinkedIn and Instagram, streamed AI content, billing and CI.',
+      },
+    ],
+  },
+  {
+    title: 'Full-Stack Engineer',
+    org: 'ARTEON Software Consultancy',
+    period: 'Feb 2020 – Jun 2025',
+    logo: { kind: 'image', src: 'images/logos/arteon.png', dark: true },
+    summary:
+      'Owned backend architecture, database design and on-premises deployments in an Nx monorepo, working directly with clients. Built a no-code API platform, a dynamic SQL reporting engine with Redis caching, MES and ERP integrations, and a Gantt-based project tool.',
+  },
+  {
+    title: 'Long-term Intern',
+    org: 'H&M',
+    period: '2018 – 2019',
+    logo: { kind: 'image', src: 'images/logos/hm.svg' },
+    summary: 'Corporate office, structured team workflows.',
+  },
+];
+
+export const education: Education[] = [
+  { title: 'B.Sc. Textile Engineering', org: 'Istanbul Technical University', period: '2014 – 2019', note: 'Taught 100% in English.' },
+  { title: 'B.Sc. Management Information Systems', org: 'Anadolu University', period: '2025 – now' },
+  { title: 'Associate Degree, Web Design and Coding', org: 'Anadolu University', period: '2023 – 2025' },
+];
+
+export const languages =
+  'Turkish (native) · English (C1; 6-month advanced program at ILSC Sydney) · IBM Full-Stack Developer course, 2024–2025';
+
+const linkedinActivity = 'https://www.linkedin.com/in/g-deniz-karatas/recent-activity/all/';
+
+export const posts: Post[] = [
+  {
+    platform: 'LinkedIn post',
+    date: 'Oct 2026 · Turkish',
+    title: 'Fewer words, more tokens: Turkish vs English',
+    summary: '1012 parallel sentences: Turkish costs 1.43× the tokens of English on GPT-5, down from 1.92× on GPT-4.',
+    image: 'images/writing/tokens.png',
+    url: linkedinActivity,
+  },
+  {
+    platform: 'LinkedIn post',
+    date: 'Oct 2026',
+    title: 'How AI agents reverse engineer apps',
+    summary: "I read REA's source: no model calls inside, Ghidra does the decompiling, the agent carries the evidence.",
+    image: 'images/writing/rea.png',
+    url: linkedinActivity,
+  },
+  {
+    platform: 'Medium article',
+    date: 'Jun 2025',
+    title: 'Understanding extends and super() in TypeScript classes',
+    summary: 'How class inheritance works in TypeScript, and why super() comes first in a subclass constructor.',
+    image: 'images/writing/typescript.png',
+    url: 'https://medium.com/@karatas.gun/understanding-extends-and-super-in-typescript-classes-27ac827ca263',
+  },
+];
+
+export const books: Book[] = [
+  {
+    title: 'The Pragmatic Programmer',
+    author: 'David Thomas & Andrew Hunt',
+    cover: 'images/books/pragmatic-programmer.png',
+    note: 'Habits of a careful engineer: own your work, keep things small and reversible, automate the boring parts, and stay curious.',
+  },
+  {
+    title: 'A Philosophy of Software Design',
+    author: 'John Ousterhout',
+    cover: 'images/books/philosophy-of-software-design.jpg',
+    note: 'Complexity is the real enemy. Deep modules with simple interfaces hide it; shallow ones spread it everywhere.',
+  },
+  {
+    title: 'Designing Data-Intensive Applications',
+    author: 'Martin Kleppmann',
+    cover: 'images/books/designing-data-intensive-applications.png',
+    note: 'How databases, replication, partitioning and streams really work, and the trade-offs behind reliable, scalable systems.',
+  },
+  {
+    title: 'Effective TypeScript',
+    author: 'Dan Vanderkam',
+    cover: 'images/books/effective-typescript.png',
+    note: 'Concrete rules for using the type system well: let types model your domain, and let the compiler catch mistakes for you.',
+  },
+];
