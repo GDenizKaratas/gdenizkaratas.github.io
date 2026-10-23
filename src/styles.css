@@ -48,8 +48,8 @@ h1, h2, h3, p, ul, figure { margin: 0; }
 .profile-head { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; }
 .avatar { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 3px solid #fff; box-shadow: 0 4px 16px rgb(29 34 41 / 0.14); }
 .identity { flex: 1 1 200px; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
-.identity h1 { font-size: 28px; font-weight: 800; line-height: 1.2; text-wrap: balance; }
-.identity .role { margin-top: 8px; font-size: 20px; font-weight: 800; }
+.identity h1 { font-size: 26px; font-weight: 800; line-height: 1.15; text-wrap: balance; }
+.identity .role { margin-top: 8px; font-size: 19px; font-weight: 800; color: var(--accent-ink); }
 .identity .tagline { font-size: 15px; color: var(--muted); }
 .identity .location { font-size: 14px; color: var(--muted); }
 .bio { display: flex; flex-direction: column; gap: 10px; }
