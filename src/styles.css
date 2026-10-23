@@ -192,6 +192,7 @@ h1, h2, h3, p, ul, figure { margin: 0; }
 
 @media (max-width: 1039px) {
   .cv-ear { display: none; }
+  .profile { justify-content: flex-start; align-self: flex-start; }
 }
 
 @media (min-width: 1040px) {
