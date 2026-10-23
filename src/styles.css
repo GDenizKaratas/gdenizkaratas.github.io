@@ -99,11 +99,9 @@ h1, h2, h3, p, ul, figure { margin: 0; }
   padding: 11px 18px 13px; margin-bottom: -1px; border-radius: 12px 12px 0 0;
   background: var(--accent); color: #fff; font-weight: 800; font-size: 14px; text-decoration: none;
   position: relative; z-index: 1;
-  transition: background-color 160ms ease, padding 160ms ease, box-shadow 160ms ease;
+  transition: background-color 160ms ease, transform 160ms ease;
 }
-.cv-ear svg { transition: transform 160ms ease; }
-.cv-ear:hover { background: var(--accent-ink); color: #fff; padding-top: 14px; box-shadow: 0 -6px 16px rgb(49 120 198 / 0.28); }
-.cv-ear:hover svg { transform: translateY(2px); }
+.cv-ear:hover { background: var(--accent-ink); color: #fff; transform: translateY(-2px); }
 
 .panel-card { flex: 1 1 auto; min-height: 0; padding: 28px 32px 32px; display: flex; flex-direction: column; }
 .flipwrap { perspective: 1600px; flex: 1 1 auto; min-height: 0; display: flex; }
@@ -188,8 +186,8 @@ h1, h2, h3, p, ul, figure { margin: 0; }
 /* ---------- responsive ---------- */
 
 @media (prefers-reduced-motion: reduce) {
-  .flipper, .ear, .btn, .cv-ear, .cv-ear svg { transition: none; }
-  .ear:hover { transform: none; }
+  .flipper, .ear, .btn, .cv-ear { transition: none; }
+  .ear:hover, .cv-ear:hover { transform: none; }
 }
 
 @media (max-width: 1039px) {

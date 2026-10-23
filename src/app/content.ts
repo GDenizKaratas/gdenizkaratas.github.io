@@ -260,7 +260,6 @@ export const roles: Role[] = [
 export const education: Education[] = [
   { title: 'B.Sc. Textile Engineering', org: 'Istanbul Technical University', period: '2014 – 2019', note: 'Taught 100% in English.' },
   { title: 'B.Sc. Management Information Systems', org: 'Anadolu University', period: '2025 – now' },
-  { title: 'Associate Degree, Web Design and Coding', org: 'Anadolu University', period: '2023 – 2025' },
 ];
 
 export const languages =
