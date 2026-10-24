@@ -10,7 +10,7 @@ import { posts } from '../content';
           <img [src]="post.image" alt="" width="88" height="88" loading="lazy" />
           <span class="post-body">
             <span class="post-meta">
-              <span class="platform">
+              <span class="platform" [class.medium]="post.platform === 'Medium article'">
                 <img [src]="post.platform === 'Medium article' ? 'images/icons/medium.svg' : 'images/icons/linkedin.svg'" alt="" />
                 {{ post.platform }}
               </span>
