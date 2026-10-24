@@ -59,8 +59,8 @@
       </section>
     </div>
 
-    <div class="work">
-      <div class="earrow">
+    <div class="work" #work>
+      <div class="earrow" [class.stuck]="stuck()">
         <nav class="ears" aria-label="Sections">
           @for (tab of tabs; track tab.id) {
             <button class="ear" type="button" [attr.aria-pressed]="picked() === tab.id" (click)="pick(tab.id)">
@@ -87,4 +87,9 @@
       </section>
     </div>
   </div>
+  @if (showTop()) {
+    <button class="to-top" type="button" aria-label="Back to top" (click)="toTop()">
+      <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"></path><path d="M5 12l7-7 7 7"></path></svg>
+    </button>
+  }
 </div>
