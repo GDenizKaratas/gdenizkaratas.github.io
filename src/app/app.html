@@ -62,9 +62,9 @@
         </a>
       </div>
 
-      <section class="card panel-card" aria-label="Work" aria-live="polite">
+      <section class="card panel-card" aria-label="Work" aria-live="polite" [class.flip-out]="phase() === 'out'" [class.flip-in]="phase() === 'in'">
         <div class="flipwrap">
-          <div class="flipper" [class.turning]="turning()">
+          <div class="flipper">
             <div class="scroll">
               @switch (shown()) {
                 @case ('projects') { <app-projects-panel /> }

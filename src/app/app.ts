@@ -7,8 +7,8 @@ import { BooksPanel } from './panels/books-panel';
 
 type Tab = 'projects' | 'experience' | 'writing' | 'books';
 
-// Half of the flip: the card turns edge-on, content swaps, then it turns back.
-const TURN_MS = 260;
+// The card turns edge-on, the content swaps, then it comes back from the other side.
+const TURN_OUT_MS = 200;
 
 @Component({
   selector: 'app-root',
@@ -28,7 +28,7 @@ export class App implements OnDestroy {
   protected readonly shown = signal<Tab>('projects');
   /** The tab the visitor picked; leads `shown` while the card is turning. */
   protected readonly picked = signal<Tab>('projects');
-  protected readonly turning = signal(false);
+  protected readonly phase = signal<'idle' | 'out' | 'in'>('idle');
 
   private timer?: ReturnType<typeof setTimeout>;
 
@@ -40,11 +40,13 @@ export class App implements OnDestroy {
       this.shown.set(tab);
       return;
     }
-    this.turning.set(true);
+    this.phase.set('out');
     this.timer = setTimeout(() => {
       this.shown.set(tab);
-      this.turning.set(false);
-    }, TURN_MS);
+      this.phase.set('in');
+      // Let the browser paint the far-side start before animating back.
+      this.timer = setTimeout(() => this.phase.set('idle'), 30);
+    }, TURN_OUT_MS);
   }
 
   ngOnDestroy(): void {
