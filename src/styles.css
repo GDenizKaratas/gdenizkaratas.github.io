@@ -222,10 +222,13 @@ h1, h2, h3, p, ul, figure { margin: 0; }
 @media (min-width: 1040px) {
   .page { height: 100vh; overflow: hidden; padding: 48px 56px; }
   .stage { height: 100%; }
-  .work { height: 100%; min-height: 0; }
   .cv-left { display: none; }
-  /* Line the profile card up with the work card, which sits below the tab row. */
-  .profile { margin-top: 45px; }
+  /* Two rows: the tab row above the work card, both cards sharing the second row. */
+  .stage { display: grid; grid-template-columns: minmax(0, 46fr) minmax(0, 54fr); grid-template-rows: auto minmax(0, 1fr); column-gap: 32px; row-gap: 0; perspective: 1800px; }
+  .work { display: contents; }
+  .profile { grid-column: 1; grid-row: 2; }
+  .earrow { grid-column: 2; grid-row: 1; }
+  .panel-card { grid-column: 2; grid-row: 2; }
   .links { display: flex; flex-wrap: wrap; }
   .scroll {
     flex: 1 1 auto; min-height: 0; overflow-y: auto;
