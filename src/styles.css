@@ -218,6 +218,8 @@ h1, h2, h3, p, ul, figure { margin: 0; }
   .stage { height: 100%; }
   .work { height: 100%; min-height: 0; }
   .cv-left { display: none; }
+  /* Line the profile card up with the work card, which sits below the tab row. */
+  .profile { margin-top: 45px; }
   .links { display: flex; flex-wrap: wrap; }
   .scroll {
     flex: 1 1 auto; min-height: 0; overflow-y: auto;
