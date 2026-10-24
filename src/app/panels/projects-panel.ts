@@ -27,6 +27,15 @@ import { Project, projects } from '../content';
                 </div>
 
                 <p class="summary">{{ p.summary }}</p>
+                @if (p.story; as story) {
+                  <p class="decision">{{ story.decision }}</p>
+                  @if (story.proof) {
+                    <p class="proof-line">
+                      <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"></path></svg>
+                      {{ story.proof }}
+                    </p>
+                  }
+                }
 
                 <div class="meta-row">
                   <div class="icons" role="list" [attr.aria-label]="'Built with ' + techNames(p)">
@@ -36,7 +45,7 @@ import { Project, projects } from '../content';
                       </span>
                     }
                   </div>
-                  @if (p.proof) {
+                  @if (p.proof && !p.story) {
                     <span class="proof">{{ p.proof }}</span>
                   }
                   <span class="actions">
@@ -60,16 +69,6 @@ import { Project, projects } from '../content';
                   </span>
                 </div>
               </div>
-              @if (p.story; as story) {
-                <dl class="story">
-                  <dt>Problem</dt><dd>{{ story.problem }}</dd>
-                  <dt>Approach</dt><dd>{{ story.approach }}</dd>
-                  <dt>Key decision</dt><dd>{{ story.decision }}</dd>
-                  @if (story.result) {
-                    <dt>Result</dt><dd>{{ story.result }}</dd>
-                  }
-                </dl>
-              }
             </article>
           }
         </div>

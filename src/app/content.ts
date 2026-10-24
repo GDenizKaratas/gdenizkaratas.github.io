@@ -22,7 +22,8 @@ export interface Project {
   client?: string;
   links: ProjectLink[];
   group: 'featured' | 'more' | 'client';
-  story?: { problem: string; approach: string; decision: string; result?: string };
+  /** Featured only: the one engineering decision worth reading, and what backs it up. */
+  story?: { decision: string; proof?: string };
 }
 
 export interface Role {
@@ -111,16 +112,14 @@ export const projects: Project[] = [
     image: 'images/projects/bank-agent-lab.jpg',
     imageAlt: 'All 4 automatic checks passed',
     summary:
-      'An AI agent investigates flagged transactions through four read-only tools; deterministic checks score the risk, a human decides.',
+      'Too many flagged transactions for people to review. An AI agent gathers evidence through four read-only tools and RAG; a human decides.',
     tech: [T.python, T.gemini],
     proof: 'RAG · eval set · 120+ tests',
     links: [{ label: 'View code', url: gh('bank-agent-lab') }],
     group: 'featured',
     story: {
-      problem: 'Too many flagged transactions, and an LLM should not decide risk.',
-      approach: 'Read-only tools and RAG gather evidence; a human decides.',
       decision: 'Risk scoring stays in deterministic code, never in the model.',
-      result: '120+ tests, an eval set and a full audit log.',
+      proof: '120+ tests · eval set · full audit log',
     },
   },
   {
@@ -129,7 +128,7 @@ export const projects: Project[] = [
     image: 'images/projects/content.png',
     imageAlt: 'Draft, schedule, publish to X, LinkedIn and Instagram',
     summary:
-      'Multi-tenant SaaS: streamed AI content, OAuth publishing to X, LinkedIn and Instagram, plan quotas and billing.',
+      'Teams were posting the same content to every platform by hand. A multi-tenant NestJS SaaS with one provider interface per platform: X, LinkedIn, Instagram.',
     tech: [T.nest, T.angular, T.prisma, T.openai],
     proof: '30+ Prisma models · CI',
     links: [
@@ -138,10 +137,8 @@ export const projects: Project[] = [
     ],
     group: 'featured',
     story: {
-      problem: 'Teams post the same content to every platform by hand.',
-      approach: 'Multi-tenant NestJS API, one provider interface per platform.',
       decision: 'The database is the only lock; tokens are encrypted at rest.',
-      result: 'MVP working end to end against the real platform APIs.',
+      proof: 'Works end to end on the real APIs · 30+ Prisma models · CI',
     },
   },
   {
@@ -150,14 +147,13 @@ export const projects: Project[] = [
     image: 'images/projects/nocode.png',
     imageAlt: 'A data model becomes a generated CRUD API',
     client: arteon,
-    summary: 'A visual data-model designer and a Node.js service that generates JWT-protected CRUD APIs from user-defined models.',
+    summary:
+      'Every client project needed the same secured CRUD backend. A visual data-model designer plus a Node.js API generator.',
     tech: [T.angular, T.node],
     links: [],
     group: 'featured',
     story: {
-      problem: 'Every client project needed the same secured CRUD backend.',
-      approach: 'Visual data-model designer plus a Node.js API generator.',
-      decision: 'Generate JWT-protected endpoints from the model, not by hand.',
+      decision: 'JWT-protected endpoints are generated from the model, not written by hand.',
     },
   },
   {
