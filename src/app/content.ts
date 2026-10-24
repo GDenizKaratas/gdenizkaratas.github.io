@@ -354,15 +354,15 @@ export const books: Book[] = [
     note: 'Complexity is the real enemy. Deep modules with simple interfaces hide it; shallow ones spread it everywhere.',
   },
   {
-    title: 'Designing Data-Intensive Applications',
-    author: 'Martin Kleppmann',
-    cover: 'images/books/designing-data-intensive-applications.png',
-    note: 'How databases, replication, partitioning and streams really work, and the trade-offs behind reliable, scalable systems.',
-  },
-  {
     title: 'Effective TypeScript',
     author: 'Dan Vanderkam',
     cover: 'images/books/effective-typescript.png',
     note: 'Concrete rules for using the type system well: let types model your domain, and let the compiler catch mistakes for you.',
+  },
+  {
+    title: 'Designing Data-Intensive Applications',
+    author: 'Martin Kleppmann',
+    cover: 'images/books/designing-data-intensive-applications.png',
+    note: 'How databases, replication, partitioning and streams really work, and the trade-offs behind reliable, scalable systems.',
   },
 ];
