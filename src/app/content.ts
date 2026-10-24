@@ -314,8 +314,6 @@ export const languages = [
   'IBM Full-Stack Developer course, 2024–2025',
 ];
 
-const linkedinActivity = 'https://www.linkedin.com/in/g-deniz-karatas/recent-activity/all/';
-
 export const posts: Post[] = [
   {
     platform: 'LinkedIn post',
@@ -331,7 +329,7 @@ export const posts: Post[] = [
     title: 'How AI agents reverse engineer apps',
     summary: "I read REA's source: no model calls inside, Ghidra does the decompiling, the agent carries the evidence.",
     image: 'images/writing/rea.png',
-    url: linkedinActivity,
+    url: 'https://www.linkedin.com/posts/g-deniz-karatas_reverseengineering-aiagents-share-7516879761185554433-aMDC/',
   },
   {
     platform: 'Medium article',
