@@ -286,14 +286,13 @@ h1, h2, h3, p, ul { margin: 0; }
 /* Phones: four tabs must fit on one row. */
 @media (max-width: 480px) {
   .work > .earrow { padding-left: 8px; padding-right: 8px; }
-  /* Photo and name side by side to save height. */
   .profile, .panel-card { padding: 24px; }
-  .profile-head { flex-wrap: nowrap; align-items: center; gap: 14px; }
-  .avatar { width: 68px; height: 68px; flex-shrink: 0; border-width: 2px; }
-  .identity { flex: 1 1 0; }
-  .identity h1 { font-size: clamp(18px, 5.4vw, 22px); }
-  .identity .role { margin-top: 4px; font-size: 17px; }
-  .identity .tagline { font-size: 14px; }
+  /* The portrait stays the centrepiece, a little smaller; the name sits under it. */
+  .profile-head { flex-direction: column; text-align: center; gap: 16px; }
+  .avatar { width: 128px; height: 128px; }
+  .identity { flex: none; align-items: center; }
+  .identity h1 { font-size: clamp(20px, 6.2vw, 24px); }
+  .identity .role { margin-top: 6px; font-size: 18px; }
   .ears { gap: 4px; font-size: 13px; }
   .ear { padding: 8px 11px 9px; }
   .ear[aria-pressed='true'], .ear.is-static { padding: 11px 13px 13px; }
