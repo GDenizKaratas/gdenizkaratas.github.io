@@ -6,7 +6,9 @@ import { Project, projects } from '../content';
   template: `
     @for (section of sections; track section.id) {
       <section class="project-group" [attr.aria-label]="section.title">
-        <p class="eyebrow group-title">{{ section.title }}</p>
+        @if (section.title) {
+          <p class="eyebrow group-title">{{ section.title }}</p>
+        }
         <div class="rows" [class.featured-list]="section.id === 'featured'">
           @for (p of section.items; track p.name) {
             <article class="project" [class.featured]="p.story">
@@ -77,7 +79,7 @@ import { Project, projects } from '../content';
 })
 export class ProjectsPanel {
   protected readonly sections = [
-    { id: 'featured', title: 'FEATURED' },
+    { id: 'featured', title: '' },
     { id: 'more', title: 'MORE PROJECTS' },
     { id: 'client', title: 'CLIENT WORK AT ARTEON' },
   ].map((s) => ({ ...s, items: projects.filter((p) => p.group === s.id) }));
