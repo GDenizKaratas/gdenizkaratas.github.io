@@ -160,7 +160,7 @@ h1, h2, h3, p, ul, figure { margin: 0; }
 .group-title { margin-bottom: 14px; }
 .title-link { color: inherit; text-decoration: none; }
 .title-link:hover { text-decoration: underline; }
-.story { display: grid; grid-template-columns: 92px 1fr; gap: 4px 12px; margin: 2px 0 0; font-size: 14px; line-height: 1.5; }
+.story { flex: 1 1 100%; display: grid; grid-template-columns: 104px 1fr; gap: 4px 14px; margin: 0; padding: 12px 14px; background: #f6f8fb; border-radius: 10px; font-size: 14px; line-height: 1.5; }
 .story dt { font-size: 11px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--faint); padding-top: 2px; }
 .story dd { margin: 0; color: var(--ink-2); }
 @media (max-width: 520px) { .story { grid-template-columns: 1fr; } .story dd { margin-bottom: 4px; } }

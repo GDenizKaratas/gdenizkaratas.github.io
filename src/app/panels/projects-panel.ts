@@ -26,18 +26,7 @@ import { Project, projects } from '../content';
                   }
                 </div>
 
-                @if (p.story; as story) {
-                  <dl class="story">
-                    <dt>Problem</dt><dd>{{ story.problem }}</dd>
-                    <dt>Approach</dt><dd>{{ story.approach }}</dd>
-                    <dt>Key decision</dt><dd>{{ story.decision }}</dd>
-                    @if (story.result) {
-                      <dt>Result</dt><dd>{{ story.result }}</dd>
-                    }
-                  </dl>
-                } @else {
-                  <p class="summary">{{ p.summary }}</p>
-                }
+                <p class="summary">{{ p.summary }}</p>
 
                 <div class="meta-row">
                   <div class="icons" role="list" [attr.aria-label]="'Built with ' + techNames(p)">
@@ -71,6 +60,16 @@ import { Project, projects } from '../content';
                   </span>
                 </div>
               </div>
+              @if (p.story; as story) {
+                <dl class="story">
+                  <dt>Problem</dt><dd>{{ story.problem }}</dd>
+                  <dt>Approach</dt><dd>{{ story.approach }}</dd>
+                  <dt>Key decision</dt><dd>{{ story.decision }}</dd>
+                  @if (story.result) {
+                    <dt>Result</dt><dd>{{ story.result }}</dd>
+                  }
+                </dl>
+              }
             </article>
           }
         </div>

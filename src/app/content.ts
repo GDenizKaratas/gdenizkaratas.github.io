@@ -116,10 +116,10 @@ export const projects: Project[] = [
     links: [{ label: 'View code', url: gh('bank-agent-lab') }],
     group: 'featured',
     story: {
-      problem: 'Banks get more flagged transactions than analysts can review, but an LLM should not be the one that scores risk or closes a case.',
-      approach: 'The agent gathers evidence through four scoped, read-only tools and RAG over policy documents; a human makes the final call.',
-      decision: 'Risk scoring stays in deterministic Python, separate from the model. Automatic checks flag when the agent contradicts the rules.',
-      result: '120+ automated tests, a repeatable evaluation set and a full audit log, on fully synthetic data.',
+      problem: 'Too many flagged transactions, and an LLM should not decide risk.',
+      approach: 'Read-only tools and RAG gather evidence; a human decides.',
+      decision: 'Risk scoring stays in deterministic code, never in the model.',
+      result: '120+ tests, an eval set and a full audit log.',
     },
   },
   {
@@ -137,10 +137,10 @@ export const projects: Project[] = [
     ],
     group: 'featured',
     story: {
-      problem: 'Small teams write and publish the same posts across X, LinkedIn and Instagram by hand.',
-      approach: 'A multi-tenant NestJS API with one provider interface per platform, so adding a network does not touch the scheduler.',
-      decision: 'The database is the only lock: due posts are claimed atomically and stale claims are recovered. Tokens are encrypted with AES-256-GCM.',
-      result: 'MVP that works end to end against the real platform APIs: sign up, connect accounts, generate, schedule, publish.',
+      problem: 'Teams post the same content to every platform by hand.',
+      approach: 'Multi-tenant NestJS API, one provider interface per platform.',
+      decision: 'The database is the only lock; tokens are encrypted at rest.',
+      result: 'MVP working end to end against the real platform APIs.',
     },
   },
   {
@@ -154,9 +154,9 @@ export const projects: Project[] = [
     links: [],
     group: 'featured',
     story: {
-      problem: 'Client projects kept needing the same secured CRUD backends, written by hand each time.',
-      approach: 'A visual data-model designer in Angular and a Node.js service that generates the API from the model.',
-      decision: 'Generate JWT-protected CRUD endpoints from user-defined models instead of hand-writing them per project.',
+      problem: 'Every client project needed the same secured CRUD backend.',
+      approach: 'Visual data-model designer plus a Node.js API generator.',
+      decision: 'Generate JWT-protected endpoints from the model, not by hand.',
     },
   },
   {
@@ -255,19 +255,12 @@ export const roles: Role[] = [
     logo: { kind: 'text', text: 'GDK' },
     summary: 'Client work and my own products, designed and built end to end.',
     highlights: [
-      {
-        name: 'Multi-Channel Inventory Sync',
-        text: 'Keeps one stock count in sync across sales channels, starting with Shopify.',
-        current: true,
-      },
-      {
-        name: 'Bank Agent Lab',
-        text: 'AI agent for transaction risk review: four scoped, read-only tools, deterministic risk checks, RAG over policy documents, human review, audit logs and an evaluation set.',
-      },
-      {
-        name: 'Content Pilot',
-        text: 'Multi-tenant NestJS SaaS: JWT and RBAC, 30+ Prisma models, OAuth publishing to X, LinkedIn and Instagram, streamed AI content, billing and CI.',
-      },
+      { name: 'Multi-Channel Inventory Sync', text: 'Stock sync across sales channels, starting with Shopify.', current: true },
+      { name: 'Bank Agent Lab', text: 'AI agent for transaction risk review, with evals.' },
+      { name: 'Content Pilot', text: 'Multi-tenant SaaS for scheduling AI-written posts.' },
+      { name: 'Video Automation Pipeline', text: 'JSON to publish-ready video with LLM scripts and voiceovers.' },
+      { name: 'LLM Provider Layer', text: 'OpenAI and Anthropic behind one interface, with fallback.' },
+      { name: 'timewent and Teach Yourself AI', text: 'Open-source tools I use every day.' },
     ],
   },
   {
