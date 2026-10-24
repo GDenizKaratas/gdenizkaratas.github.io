@@ -347,24 +347,24 @@ export const books: Book[] = [
     title: 'The Pragmatic Programmer',
     author: 'David Thomas & Andrew Hunt',
     cover: 'images/books/pragmatic-programmer.png',
-    note: 'Habits of a careful engineer: own your work, keep things small and reversible, automate the boring parts, and stay curious.',
+    note: 'More about habits than code. Taking small, reversible steps is still the advice I find most useful.',
   },
   {
     title: 'A Philosophy of Software Design',
     author: 'John Ousterhout',
     cover: 'images/books/philosophy-of-software-design.jpg',
-    note: 'Complexity is the real enemy. Deep modules with simple interfaces hide it; shallow ones spread it everywhere.',
+    note: 'Short and practical. It changed how I think about where complexity should live.',
   },
   {
     title: 'Effective TypeScript',
     author: 'Dan Vanderkam',
     cover: 'images/books/effective-typescript.png',
-    note: 'Concrete rules for using the type system well: let types model your domain, and let the compiler catch mistakes for you.',
+    note: 'Less about clever types, more about making mistakes harder to write.',
   },
   {
     title: 'Designing Data-Intensive Applications',
     author: 'Martin Kleppmann',
     cover: 'images/books/designing-data-intensive-applications.png',
-    note: 'How databases, replication, partitioning and streams really work, and the trade-offs behind reliable, scalable systems.',
+    note: 'Dense, but worth it. It explains why systems fail and what each design choice really costs.',
   },
 ];
