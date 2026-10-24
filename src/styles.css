@@ -100,7 +100,7 @@ h1, h2, h3, p, ul, figure { margin: 0; }
 .cv-ear {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 11px 18px 13px; margin-bottom: -1px; border-radius: 12px 12px 0 0;
-  background: var(--accent); color: #fff; font-weight: 800; font-size: 14px; text-decoration: none;
+  background: var(--accent); color: #fff; font-weight: 800; font-size: 14px; text-decoration: none; white-space: nowrap; flex-shrink: 0;
   position: relative; z-index: 1;
   transition: background-color 160ms ease, transform 160ms ease;
 }
@@ -237,6 +237,15 @@ h1, h2, h3, p, ul, figure { margin: 0; }
   }
 }
 
+/* Narrow desktops: tabs and the CV ear share a tighter row. */
+@media (min-width: 1040px) and (max-width: 1279px) {
+  .earrow { padding: 0 4px; gap: 8px; }
+  .ears { gap: 4px; font-size: 13px; }
+  .ear { padding: 8px 11px 9px; }
+  .ear[aria-pressed='true'] { padding: 11px 13px 13px; }
+  .cv-ear { padding: 11px 14px 13px; font-size: 13px; }
+}
+
 /* Short laptop screens: tighten the left card so everything stays inside it. */
 @media (min-width: 1040px) and (max-height: 820px) {
   .page { padding-top: 24px; padding-bottom: 24px; }
@@ -258,4 +267,17 @@ h1, h2, h3, p, ul, figure { margin: 0; }
   .ear { padding: 8px 11px 9px; }
   .ear[aria-pressed='true'] { padding: 11px 13px 13px; }
   .btn { padding: 0 12px; white-space: nowrap; }
+}
+
+/* Featured: image and summary side by side, the decision runs the full card width.
+   Narrow cards keep the stacked layout. */
+.featured-list { container-type: inline-size; }
+@container (min-width: 460px) {
+  .featured-list > .project { display: grid; grid-template-columns: 200px minmax(0, 1fr); column-gap: 18px; row-gap: 6px; }
+  .featured-list > .project > .project-body { display: contents; }
+  .featured-list .thumb { grid-column: 1; grid-row: 1 / span 2; width: 200px; height: 125px; }
+  .featured-list .title-row { grid-column: 2; }
+  .featured-list .summary { grid-column: 2; }
+  .featured-list .decision, .featured-list .proof-line, .featured-list .meta-row { grid-column: 1 / -1; }
+  .featured-list .decision { margin-top: 10px; }
 }

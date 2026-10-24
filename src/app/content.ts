@@ -86,7 +86,7 @@ const T = {
 export const profile = {
   name: 'Güngör Deniz Karataş',
   role: 'Full-Stack Engineer',
-  tagline: 'Building AI agents and LLM products',
+  tagline: 'AI agents and LLM products',
   location: 'Istanbul, Türkiye',
   photo: 'images/profile.jpg',
   bio: [

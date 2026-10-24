@@ -29,12 +29,6 @@ import { Project, projects } from '../content';
                 <p class="summary">{{ p.summary }}</p>
                 @if (p.story; as story) {
                   <p class="decision">{{ story.decision }}</p>
-                  @if (story.proof) {
-                    <p class="proof-line">
-                      <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"></path></svg>
-                      {{ story.proof }}
-                    </p>
-                  }
                 }
 
                 <div class="meta-row">
@@ -45,7 +39,12 @@ import { Project, projects } from '../content';
                       </span>
                     }
                   </div>
-                  @if (p.proof && !p.story) {
+                  @if (p.story?.proof; as proof) {
+                    <span class="proof-line">
+                      <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"></path></svg>
+                      {{ proof }}
+                    </span>
+                  } @else if (p.proof) {
                     <span class="proof">{{ p.proof }}</span>
                   }
                   <span class="actions">
