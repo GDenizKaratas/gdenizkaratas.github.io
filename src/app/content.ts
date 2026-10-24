@@ -330,7 +330,7 @@ export const posts: Post[] = [
     title: 'Fewer words, more tokens: Turkish vs English',
     summary: '1012 parallel sentences: Turkish costs 1.43× the tokens of English on GPT-5, down from 1.92× on GPT-4.',
     image: 'images/writing/tokens.png',
-    url: linkedinActivity,
+    url: 'https://www.linkedin.com/posts/g-deniz-karatas_llm-tokenization-share-7518996453126709248-ZMhc/',
   },
   {
     platform: 'LinkedIn post',
