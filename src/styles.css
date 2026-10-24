@@ -106,7 +106,9 @@ h1, h2, h3, p, ul, figure { margin: 0; }
   position: relative; z-index: 1;
   transition: background-color 160ms ease, transform 160ms ease;
 }
+.cv-ear { font-family: inherit; border: 0; cursor: pointer; }
 .cv-ear:hover { background: var(--accent-ink); color: #fff; transform: translateY(-2px); }
+.cv-ear[aria-pressed='true'] { background: var(--accent); transform: none; cursor: default; }
 
 .panel-card {
   flex: 1 1 auto; min-height: 0; padding: 28px 32px 32px; display: flex; flex-direction: column;
@@ -121,6 +123,16 @@ h1, h2, h3, p, ul, figure { margin: 0; }
 .panel-card.flip-in { transform: rotateY(-90deg) scale(0.97); transition: none; }
 .flipwrap { flex: 1 1 auto; min-height: 0; display: flex; }
 .flipper { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; }
+/* CV: the card turns blue and shows the page; the download stays in reach while scrolling. */
+.panel-card.cv-card { background: var(--accent); padding: 20px 20px 24px; }
+.cv-card .scroll { scrollbar-color: rgb(255 255 255 / 0.5) transparent; }
+.cv-bar { position: sticky; top: 0; z-index: 1; display: flex; justify-content: flex-end; gap: 10px; padding-bottom: 14px; background: var(--accent); }
+.cv-open { border: 1px solid rgb(255 255 255 / 0.6); color: #fff; }
+.cv-open:hover { background: rgb(255 255 255 / 0.12); color: #fff; }
+.cv-download { background: #fff; color: var(--accent-ink); font-weight: 800; }
+.cv-download:hover { background: #eef3f9; color: var(--accent-ink); }
+.cv-page-link { display: block; }
+.cv-page { display: block; width: 100%; height: auto; border-radius: 6px; background: #fff; box-shadow: 0 8px 24px rgb(13 40 80 / 0.28); }
 .scroll { scrollbar-gutter: stable; scrollbar-width: thin; scrollbar-color: #c9d3df transparent; }
 .cv-left { display: inline-flex; }
 

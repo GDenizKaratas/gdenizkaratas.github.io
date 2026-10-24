@@ -65,13 +65,13 @@
             </button>
           }
         </nav>
-        <a class="cv-ear" [href]="profile.cv" target="_blank" rel="noopener" title="Opens my one-page CV (PDF)">
-          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"></path><path d="M7 10l5 5 5-5"></path><path d="M5 21h14"></path></svg>
+        <button class="cv-ear" type="button" [attr.aria-pressed]="picked() === 'cv'" (click)="pick('cv')">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path><path d="M9 13h6"></path><path d="M9 17h4"></path></svg>
           See my CV
-        </a>
+        </button>
       </div>
 
-      <section class="card panel-card" aria-label="Work" aria-live="polite" [class.flip-out]="phase() === 'out'" [class.flip-in]="phase() === 'in'">
+      <section class="card panel-card" aria-label="Work" aria-live="polite" [class.flip-out]="phase() === 'out'" [class.flip-in]="phase() === 'in'" [class.cv-card]="shown() === 'cv'">
         <div class="flipwrap">
           <div class="flipper">
             <div class="scroll">
@@ -80,6 +80,7 @@
                 @case ('experience') { <app-experience-panel /> }
                 @case ('writing') { <app-writing-panel /> }
                 @case ('books') { <app-books-panel /> }
+                @case ('cv') { <app-cv-panel /> }
               }
             </div>
           </div>

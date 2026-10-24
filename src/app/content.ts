@@ -100,6 +100,7 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/g-deniz-karatas',
   email: 'karatas.gun@gmail.com',
   cv: 'cv/gungor-deniz-karatas-cv.pdf',
+  cvPreview: 'cv/gungor-deniz-karatas-cv.webp',
 };
 
 const gh = (repo: string) => `https://github.com/GDenizKaratas/${repo}`;

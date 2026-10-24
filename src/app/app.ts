@@ -4,15 +4,16 @@ import { ProjectsPanel } from './panels/projects-panel';
 import { ExperiencePanel } from './panels/experience-panel';
 import { WritingPanel } from './panels/writing-panel';
 import { BooksPanel } from './panels/books-panel';
+import { CvPanel } from './panels/cv-panel';
 
-type Tab = 'projects' | 'experience' | 'writing' | 'books';
+type Tab = 'projects' | 'experience' | 'writing' | 'books' | 'cv';
 
 // The card turns edge-on, the content swaps, then it comes back from the other side.
 const TURN_OUT_MS = 200;
 
 @Component({
   selector: 'app-root',
-  imports: [ProjectsPanel, ExperiencePanel, WritingPanel, BooksPanel],
+  imports: [ProjectsPanel, ExperiencePanel, WritingPanel, BooksPanel, CvPanel],
   templateUrl: './app.html',
 })
 export class App implements OnDestroy {
