@@ -63,7 +63,9 @@ import { education, languages, roles } from '../content';
         </span>
         <div class="role-body">
           <p><strong>Languages &amp; certifications</strong></p>
-          <p class="summary">{{ languages }}</p>
+          @for (line of languages; track line) {
+            <p class="summary">{{ line }}</p>
+          }
         </div>
       </div>
     </div>

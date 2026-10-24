@@ -308,8 +308,11 @@ export const education: Education[] = [
   { title: 'B.Sc. Management Information Systems', org: 'Anadolu University', period: '2025 – now' },
 ];
 
-export const languages =
-  'Turkish (native) · English (C1; 6-month advanced program at ILSC Sydney) · IBM Full-Stack Developer course, 2024–2025';
+export const languages = [
+  'Turkish (native)',
+  'English (C1; 6-month advanced program at ILSC Sydney)',
+  'IBM Full-Stack Developer course, 2024–2025',
+];
 
 const linkedinActivity = 'https://www.linkedin.com/in/g-deniz-karatas/recent-activity/all/';
 
