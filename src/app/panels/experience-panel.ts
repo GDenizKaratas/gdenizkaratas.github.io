@@ -17,8 +17,8 @@ import { education, languages, roles } from '../content';
           }
           <div class="role-body">
             <div class="role-head">
-              <p><strong>{{ r.title }}</strong> <span class="org">· {{ r.org }}</span></p>
-              <span class="year" style="margin-left: 0">{{ r.period }}</span>
+              <p><strong>{{ r.title }}</strong><span class="org"> · {{ r.org }}</span></p>
+              <span class="year">{{ r.period }}</span>
             </div>
             @if (r.summary) {
               <p class="summary">{{ r.summary }}</p>
@@ -45,10 +45,10 @@ import { education, languages, roles } from '../content';
       <div class="role-row">
         <span class="logo fill" aria-hidden="true"><img src="images/logos/itu.png" alt="" /></span>
         <div class="role-body">
-          @for (e of education; track e.title; let first = $first) {
+          @for (e of education; track e.title) {
             <div class="role-head">
-              <p><strong>{{ e.title }}</strong> <span class="org">· {{ e.org }}</span></p>
-              <span class="year" style="margin-left: 0">{{ e.period }}</span>
+              <p><strong>{{ e.title }}</strong><span class="org"> · {{ e.org }}</span></p>
+              <span class="year">{{ e.period }}</span>
             </div>
             @if (e.note) {
               <p class="summary">{{ e.note }}</p>

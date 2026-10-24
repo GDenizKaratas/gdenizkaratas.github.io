@@ -17,7 +17,6 @@ export interface Project {
   imageAlt: string;
   summary: string;
   tech: Tech[];
-  proof?: string;
   status?: string;
   client?: string;
   links: ProjectLink[];
@@ -95,7 +94,7 @@ export const profile = {
   ],
   stack: [T.typescript, T.python, T.node, T.angular, T.nest, T.postgres, T.docker, T.openai, T.anthropic, T.gemini],
   stackVisible: 7,
-  skills: ['RAG', 'Tool calling', 'Agents', 'Evals'],
+  skills: ['RAG', 'Tool calling', 'Evals'],
   github: 'https://github.com/GDenizKaratas',
   linkedin: 'https://www.linkedin.com/in/g-deniz-karatas',
   email: 'karatas.gun@gmail.com',
@@ -115,7 +114,6 @@ export const projects: Project[] = [
     summary:
       'Too many flagged transactions for people to review. An AI agent gathers evidence through four read-only tools and RAG; a human decides.',
     tech: [T.python, T.gemini],
-    proof: 'RAG · eval set · 120+ tests',
     links: [{ label: 'View code', url: gh('bank-agent-lab') }],
     group: 'featured',
     story: {
@@ -131,7 +129,6 @@ export const projects: Project[] = [
     summary:
       'Teams were posting the same content to every platform by hand. A multi-tenant NestJS SaaS with one provider interface per platform: X, LinkedIn, Instagram.',
     tech: [T.nest, T.angular, T.prisma, T.openai],
-    proof: '30+ Prisma models · CI',
     links: [
       { label: 'API', url: gh('nest-ai-pilot') },
       { label: 'UI', url: gh('content-pilot-ui') },
@@ -238,7 +235,7 @@ export const projects: Project[] = [
     image: 'images/projects/gantt.png',
     imageAlt: 'A Gantt chart with three tasks',
     client: arteon,
-    summary: 'My first product after the MES work: an interactive Gantt chart for planning tasks and dependencies, with real-time task tracking and a REST API backend.',
+    summary: 'My first product after the MES work: an interactive Gantt chart for planning tasks and dependencies, with real-time task tracking.',
     tech: [T.angular, T.node],
     links: [],
     group: 'client',
@@ -251,7 +248,7 @@ export const roles: Role[] = [
     org: 'Own products, remote',
     period: 'Jun 2025 – now',
     logo: { kind: 'text', text: 'GDK' },
-    summary: 'Client work and my own products, designed and built end to end.',
+    summary: 'Client work and my own products.',
     highlights: [
       { name: 'Multi-Channel Inventory Sync', text: 'Stock sync across sales channels, starting with Shopify.', current: true },
       { name: 'Bank Agent Lab', text: 'AI agent for transaction risk review, with evals.' },
@@ -346,25 +343,25 @@ export const books: Book[] = [
   {
     title: 'The Pragmatic Programmer',
     author: 'David Thomas & Andrew Hunt',
-    cover: 'images/books/pragmatic-programmer.png',
+    cover: 'images/books/pragmatic-programmer.webp',
     note: 'More about habits than code. Taking small, reversible steps is still the advice I find most useful.',
   },
   {
     title: 'A Philosophy of Software Design',
     author: 'John Ousterhout',
-    cover: 'images/books/philosophy-of-software-design.jpg',
+    cover: 'images/books/philosophy-of-software-design.webp',
     note: 'Short and practical. It changed how I think about where complexity should live.',
   },
   {
     title: 'Effective TypeScript',
     author: 'Dan Vanderkam',
-    cover: 'images/books/effective-typescript.png',
+    cover: 'images/books/effective-typescript.webp',
     note: 'Less about clever types, more about making mistakes harder to write.',
   },
   {
     title: 'Designing Data-Intensive Applications',
     author: 'Martin Kleppmann',
-    cover: 'images/books/designing-data-intensive-applications.png',
+    cover: 'images/books/designing-data-intensive-applications.webp',
     note: 'Dense, but worth it. It explains why systems fail and what each design choice really costs.',
   },
 ];

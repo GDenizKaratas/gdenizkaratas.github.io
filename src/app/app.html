@@ -71,19 +71,15 @@
         </button>
       </div>
 
-      <section class="card panel-card" aria-label="Work" aria-live="polite" [class.flip-out]="phase() === 'out'" [class.flip-in]="phase() === 'in'" [class.cv-card]="shown() === 'cv'">
-        <div class="flipwrap">
-          <div class="flipper">
-            <div class="scroll">
-              @switch (shown()) {
-                @case ('projects') { <app-projects-panel /> }
-                @case ('experience') { <app-experience-panel /> }
-                @case ('writing') { <app-writing-panel /> }
-                @case ('books') { <app-books-panel /> }
-                @case ('cv') { <app-cv-panel /> }
-              }
-            </div>
-          </div>
+      <section class="card panel-card" aria-label="Work" [class.flip-out]="phase() === 'out'" [class.flip-in]="phase() === 'in'" [class.cv-card]="shown() === 'cv'">
+        <div class="scroll">
+          @switch (shown()) {
+            @case ('projects') { <app-projects-panel /> }
+            @case ('experience') { <app-experience-panel /> }
+            @case ('writing') { <app-writing-panel /> }
+            @case ('books') { <app-books-panel /> }
+            @case ('cv') { <app-cv-panel /> }
+          }
         </div>
       </section>
     </div>

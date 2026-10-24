@@ -2,7 +2,7 @@
   --ink: #1d2229;
   --ink-2: #3b434d;
   --muted: #5b6470;
-  --faint: #8a93a0;
+  --faint: #6b7480;
   --line: #e6eaf0;
   --line-2: #e3e8ef;
   --chip: #eaf2fb;
@@ -26,7 +26,7 @@ body {
 
 a { color: var(--accent-ink); }
 img { display: block; }
-h1, h2, h3, p, ul, figure { margin: 0; }
+h1, h2, h3, p, ul { margin: 0; }
 
 .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 2px; color: var(--muted); }
 
@@ -75,7 +75,7 @@ h1, h2, h3, p, ul, figure { margin: 0; }
 .btn-dark:hover { background: #000; color: #fff; }
 .btn-line { border: 1px solid #c9d3df; color: var(--ink); }
 .btn-line:hover { background: #eef3f9; color: var(--ink); }
-.btn-blue { background: var(--accent); color: #fff; font-weight: 600; }
+.btn-blue { background: var(--accent); color: #fff; }
 .btn-blue:hover { background: var(--accent-ink); color: #fff; }
 
 /* ---------- right card ---------- */
@@ -101,13 +101,13 @@ h1, h2, h3, p, ul, figure { margin: 0; }
 .ear:focus-visible, .btn:focus-visible, .chip-link:focus-visible, .cv-ear:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 .cv-ear {
+  font-family: inherit; border: 0; cursor: pointer;
   display: inline-flex; align-items: center; gap: 8px;
   padding: 11px 18px 13px; margin-bottom: -1px; border-radius: 12px 12px 0 0;
   background: var(--accent); color: #fff; font-weight: 600; font-size: 14px; text-decoration: none; white-space: nowrap; flex-shrink: 0;
   position: relative; z-index: 1;
   transition: background-color 160ms ease, transform 160ms ease;
 }
-.cv-ear { font-family: inherit; border: 0; cursor: pointer; }
 .cv-ear:hover { background: var(--accent-ink); color: #fff; transform: translateY(-2px); }
 .cv-ear[aria-pressed='true'] { background: var(--accent); transform: none; cursor: default; }
 
@@ -122,8 +122,6 @@ h1, h2, h3, p, ul, figure { margin: 0; }
   transition: transform 200ms cubic-bezier(0.5, 0, 0.9, 0.4), box-shadow 200ms ease;
 }
 .panel-card.flip-in { transform: rotateY(-90deg) scale(0.97); transition: none; }
-.flipwrap { flex: 1 1 auto; min-height: 0; display: flex; }
-.flipper { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; }
 /* CV: the card turns blue and shows the page; the download stays in reach while scrolling. */
 .panel-card.cv-card { background: var(--accent); padding: 20px 20px 24px; }
 .cv-card .scroll { scrollbar-color: rgb(255 255 255 / 0.5) transparent; }
@@ -136,7 +134,6 @@ h1, h2, h3, p, ul, figure { margin: 0; }
 .cv-page-link { display: block; }
 .cv-page { display: block; width: 100%; height: auto; border-radius: 6px; background: #fff; box-shadow: 0 8px 24px rgb(13 40 80 / 0.28); }
 .scroll { scrollbar-gutter: stable; scrollbar-width: thin; scrollbar-color: #c9d3df transparent; }
-.cv-left { display: inline-flex; }
 
 /* ---------- lists ---------- */
 
@@ -152,12 +149,10 @@ h1, h2, h3, p, ul, figure { margin: 0; }
 .title-row h3 { font-size: 17px; font-weight: 700; }
 .year { margin-left: 6px; font-size: 13px; font-weight: 700; color: var(--faint); }
 .summary { color: var(--ink-2); }
-.client { font-weight: 700; color: var(--muted); }
 .status { display: inline-flex; align-items: center; gap: 6px; padding: 2px 10px; border-radius: 999px; background: var(--chip); color: var(--accent-ink); font-size: 12px; font-weight: 700; }
 .status::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
 .meta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px; margin-top: 2px; }
 .icons { display: flex; align-items: center; gap: 12px; }
-.proof { font-size: 12px; font-weight: 700; color: var(--muted); }
 .actions { display: inline-flex; gap: 8px; margin-left: auto; }
 .chip-link, .private { display: inline-flex; align-items: center; gap: 6px; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; text-decoration: none; }
 .chip-link { border: 1px solid #c9d3df; color: var(--ink); }
@@ -173,7 +168,7 @@ h1, h2, h3, p, ul, figure { margin: 0; }
   font-size: 12px; font-weight: 700; line-height: 1; padding: 6px 8px; border-radius: 6px; white-space: nowrap;
   opacity: 0; pointer-events: none; transition: opacity 120ms, transform 120ms; z-index: 5;
 }
-.tip:hover::after, .tip:focus-visible::after { opacity: 1; transform: translateX(-50%) translateY(0); }
+.tip:hover::after { opacity: 1; transform: translateX(-50%) translateY(0); }
 
 .project-group + .project-group { margin-top: 28px; }
 .group-title { margin-bottom: 14px; }
@@ -196,6 +191,7 @@ h1, h2, h3, p, ul, figure { margin: 0; }
 .role-body { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
 .role-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; }
 .role-head strong { font-weight: 700; }
+.role-head .year { margin-left: 0; }
 .org { color: var(--muted); }
 .highlights { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; }
 .highlights li { display: flex; gap: 10px; }
@@ -287,7 +283,11 @@ h1, h2, h3, p, ul, figure { margin: 0; }
 
 /* Featured: image and summary side by side, the decision runs the full card width.
    Narrow cards keep the stacked layout. */
-.featured-list { container-type: inline-size; }
+.rows { container-type: inline-size; }
+/* Narrow cards: the image takes the full width above the text. */
+@container (max-width: 459px) {
+  .project .thumb { width: 100%; height: auto; aspect-ratio: 16 / 10; }
+}
 @container (min-width: 460px) {
   .featured-list > .project { display: grid; grid-template-columns: 200px minmax(0, 1fr); column-gap: 18px; row-gap: 6px; }
   .featured-list > .project > .project-body { display: contents; }

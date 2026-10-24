@@ -11,13 +11,13 @@ import { Project, projects } from '../content';
         }
         <div class="rows" [class.featured-list]="section.id === 'featured'">
           @for (p of section.items; track p.name) {
-            <article class="project" [class.featured]="p.story">
+            <article class="project">
               <img class="thumb" [src]="p.image" [alt]="p.imageAlt" width="184" height="115" loading="lazy" />
               <div class="project-body">
                 <div class="title-row">
                   <h3>
                     @if (p.links[0]; as link) {
-                      <a class="title-link" [href]="link.url" target="_blank" rel="noopener">{{ p.name }}</a>
+                      <a class="title-link" [href]="link.url" target="_blank" rel="noopener" tabindex="-1">{{ p.name }}</a>
                     } @else {
                       {{ p.name }}
                     }
@@ -36,7 +36,7 @@ import { Project, projects } from '../content';
                 <div class="meta-row">
                   <div class="icons" role="list" [attr.aria-label]="'Built with ' + techNames(p)">
                     @for (t of p.tech; track t.name) {
-                      <span class="tip" role="listitem" tabindex="0" [attr.data-tip]="t.name" [attr.aria-label]="t.name">
+                      <span class="tip" role="listitem" [attr.data-tip]="t.name" [attr.aria-label]="t.name">
                         <img [src]="t.icon" alt="" width="18" height="18" />
                       </span>
                     }
@@ -46,8 +46,6 @@ import { Project, projects } from '../content';
                       <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"></path></svg>
                       {{ proof }}
                     </span>
-                  } @else if (p.proof) {
-                    <span class="proof">{{ p.proof }}</span>
                   }
                   <span class="actions">
                     @for (link of p.links; track link.url) {

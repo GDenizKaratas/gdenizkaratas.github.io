@@ -4,7 +4,7 @@ import { books } from '../content';
 @Component({
   selector: 'app-books-panel',
   template: `
-    <p class="eyebrow" style="margin-bottom: 14px">FAVORITES</p>
+    <p class="eyebrow group-title">FAVORITES</p>
     <div class="rows">
       @for (book of books; track book.title) {
         <article class="book">
