@@ -138,7 +138,7 @@ export const projects: Project[] = [
     group: 'featured',
     story: {
       decision: 'The database is the only lock; tokens are encrypted at rest.',
-      proof: 'Works end to end on the real APIs · 30+ Prisma models · CI',
+      proof: '30+ Prisma models · CI',
     },
   },
   {
