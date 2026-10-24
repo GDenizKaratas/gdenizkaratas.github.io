@@ -29,6 +29,7 @@ export class App implements OnDestroy {
   /** The tab the visitor picked; leads `shown` while the card is turning. */
   protected readonly picked = signal<Tab>('projects');
   protected readonly phase = signal<'idle' | 'out' | 'in'>('idle');
+  protected readonly stackOpen = signal(false);
 
   private timer?: ReturnType<typeof setTimeout>;
 

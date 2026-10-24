@@ -21,8 +21,13 @@
       <div class="stack-block">
         <p class="eyebrow">CORE STACK</p>
         <div class="stack-grid">
-          @for (tech of profile.stack; track tech.name) {
-            <span><img [src]="tech.icon" alt="" width="20" height="20" />{{ tech.name }}</span>
+          @for (tech of profile.stack; track tech.name; let i = $index) {
+            @if (stackOpen() || i < profile.stackVisible) {
+              <span><img [src]="tech.icon" alt="" width="20" height="20" />{{ tech.name }}</span>
+            }
+          }
+          @if (!stackOpen()) {
+            <button class="more" type="button" (click)="stackOpen.set(true)">+{{ profile.stack.length - profile.stackVisible }} more</button>
           }
         </div>
         <div class="skills">
