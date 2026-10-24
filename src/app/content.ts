@@ -94,7 +94,7 @@ export const profile = {
     'Now I build AI agents with deterministic controls, human review and evals, and I measure what they do before I trust them.',
   ],
   stack: [T.typescript, T.python, T.node, T.angular, T.nest, T.postgres, T.docker, T.openai, T.anthropic, T.gemini],
-  stackVisible: 6,
+  stackVisible: 7,
   skills: ['RAG', 'Tool calling', 'Agents', 'Evals'],
   github: 'https://github.com/GDenizKaratas',
   linkedin: 'https://www.linkedin.com/in/g-deniz-karatas',
