@@ -101,15 +101,15 @@ h1, h2, h3, p, ul { margin: 0; }
 .ear:focus-visible, .btn:focus-visible, .chip-link:focus-visible, .cv-ear:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 .cv-ear {
-  font-family: inherit; border: 0; cursor: pointer;
+  font: inherit; border: 0; cursor: pointer;
   display: inline-flex; align-items: center; gap: 8px;
-  padding: 11px 18px 13px; margin-bottom: -1px; border-radius: 12px 12px 0 0;
+  padding: 8px 16px 9px; border-radius: 12px 12px 0 0;
   background: var(--accent); color: #fff; font-weight: 600; font-size: 14px; text-decoration: none; white-space: nowrap; flex-shrink: 0;
   position: relative; z-index: 1;
   transition: background-color 160ms ease, transform 160ms ease;
 }
 .cv-ear:hover { background: var(--accent-ink); color: #fff; transform: translateY(-2px); }
-.cv-ear[aria-pressed='true'] { background: var(--accent); transform: none; cursor: default; }
+.cv-ear[aria-pressed='true'] { padding: 11px 18px 13px; margin-bottom: -1px; background: var(--accent); transform: none; cursor: default; }
 
 .panel-card {
   flex: 1 1 auto; min-height: 0; padding: 28px 32px 32px; display: flex; flex-direction: column;
@@ -255,7 +255,8 @@ h1, h2, h3, p, ul { margin: 0; }
   .ears { gap: 4px; font-size: 13px; }
   .ear { padding: 8px 11px 9px; }
   .ear[aria-pressed='true'], .ear.is-static { padding: 11px 13px 13px; }
-  .cv-ear { padding: 11px 14px 13px; font-size: 13px; }
+  .cv-ear { padding: 8px 11px 9px; font-size: 13px; }
+  .cv-ear[aria-pressed='true'] { padding: 11px 13px 13px; }
 }
 
 /* Short laptop screens: tighten the left card so everything stays inside it. */
