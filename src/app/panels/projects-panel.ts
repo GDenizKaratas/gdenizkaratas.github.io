@@ -7,7 +7,7 @@ import { Project, projects } from '../content';
     @for (section of sections; track section.id) {
       <section class="project-group" [attr.aria-label]="section.title">
         <p class="eyebrow group-title">{{ section.title }}</p>
-        <div class="rows">
+        <div class="rows" [class.featured-list]="section.id === 'featured'">
           @for (p of section.items; track p.name) {
             <article class="project" [class.featured]="p.story">
               <img class="thumb" [src]="p.image" [alt]="p.imageAlt" width="184" height="115" loading="lazy" />
