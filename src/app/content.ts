@@ -93,7 +93,7 @@ export const profile = {
     '5+ years of TypeScript in production, front to back: Angular apps, Node.js and NestJS APIs, data-heavy business systems on SQL. I owned backend architecture and deployments and worked directly with clients.',
     'Now I build AI agents with deterministic controls, human review and evals, and I measure what they do before I trust them.',
   ],
-  stack: [T.typescript, T.python, T.node, T.angular, T.nest, T.openai, T.gemini, T.anthropic, T.postgres, T.docker],
+  stack: [T.typescript, T.python, T.node, T.angular, T.nest, T.postgres, T.docker, T.openai, T.anthropic, T.gemini],
   stackVisible: 6,
   skills: ['RAG', 'Tool calling', 'Agents', 'Evals'],
   github: 'https://github.com/GDenizKaratas',
