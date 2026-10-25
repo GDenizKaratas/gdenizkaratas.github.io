@@ -285,7 +285,6 @@ h1, h2, h3, p, ul { margin: 0; }
 
 /* Phones: four tabs must fit on one row. */
 @media (max-width: 480px) {
-  .work > .earrow { padding-left: 8px; padding-right: 8px; }
   .profile, .panel-card { padding: 24px; }
   /* The portrait stays the centrepiece, a little smaller; the name sits under it. */
   .profile-head { flex-direction: column; text-align: center; gap: 16px; }
@@ -294,9 +293,17 @@ h1, h2, h3, p, ul { margin: 0; }
   .identity h1 { font-size: clamp(20px, 6.2vw, 24px); }
   .identity .role { margin-top: 6px; font-size: 18px; }
   .ears { gap: 4px; font-size: 13px; }
-  .ear { padding: 8px 11px 9px; }
-  .ear[aria-pressed='true'], .ear.is-static { padding: 11px 13px 13px; }
+  .ear { padding: 8px 9px 9px; }
+  .ear[aria-pressed='true'], .ear.is-static { padding: 11px 11px 13px; }
   .btn { padding: 0 12px; white-space: nowrap; }
+}
+
+/* Very narrow phones: give the four tabs a little more room. */
+@media (max-width: 359px) {
+  .work > .earrow { padding-left: 12px; padding-right: 12px; }
+  .ears { gap: 3px; font-size: 12px; }
+  .ear { padding: 8px 8px 9px; }
+  .ear[aria-pressed='true'] { padding: 11px 10px 13px; }
 }
 
 /* Featured: image and summary side by side, the decision runs the full card width.
