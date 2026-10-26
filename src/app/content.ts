@@ -316,6 +316,14 @@ export const posts: Post[] = [
   {
     platform: 'LinkedIn post',
     date: 'Oct 2026',
+    title: 'Quick question: 400K of 1M, new topic. What now?',
+    summary: 'A one-question quiz: why a long chat costs more on every message, even when the context window is far from full.',
+    image: 'images/writing/context.png',
+    url: 'https://www.linkedin.com/posts/g-deniz-karatas_llm-contextengineering-share-7520449736634417152-syTx/',
+  },
+  {
+    platform: 'LinkedIn post',
+    date: 'Oct 2026',
     title: 'Fewer words, more tokens: Turkish vs English',
     summary: '1012 parallel sentences: Turkish costs 1.43× the tokens of English on GPT-5, down from 1.92× on GPT-4.',
     image: 'images/writing/tokens.png',
