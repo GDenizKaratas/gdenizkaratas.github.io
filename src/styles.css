@@ -219,11 +219,12 @@ h1, h2, h3, p, ul { margin: 0; }
 
 /* ---------- responsive ---------- */
 
-@keyframes rise { from { opacity: 0; transform: translateY(8px); } }
+@keyframes rise { from { transform: translateY(100%); } }
 
 @media (prefers-reduced-motion: reduce) {
   .panel-card, .panel-card.flip-out, .ear, .btn, .cv-ear { transition: none; }
-  .to-top { animation: none; }
+  .to-top { animation: none; transition: none; }
+  .to-top:hover { transform: none; }
   .ear:not([aria-pressed='true']):not(.is-static):hover, .cv-ear:not([aria-pressed='true']):hover { transform: none; box-shadow: none; }
 }
 
@@ -233,17 +234,20 @@ h1, h2, h3, p, ul { margin: 0; }
   /* Long stacked page: tabs stay reachable while reading the card. */
   .work > .earrow { position: sticky; top: 0; z-index: 5; padding-top: 8px; border-radius: 0 0 12px 12px; transition: background-color 160ms ease; }
   .work > .earrow.stuck { background: rgb(214 224 236 / 0.92); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
-  /* Once the profile is out of view, a dark pill with my portrait leads back to it. */
+  /* Once the profile is out of view, its "Who am I?" ear rises from the bottom edge and leads back to it. */
   .to-top {
-    position: fixed; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom)); z-index: 6; min-height: 44px;
-    display: inline-flex; align-items: center; gap: 8px; padding: 0 14px 0 8px;
-    font: inherit; font-size: 14px; font-weight: 700; border: 0; border-radius: 999px; cursor: pointer;
-    background: var(--ink); color: #fff; box-shadow: 0 4px 16px rgb(29 34 41 / 0.28);
-    animation: rise 200ms ease-out;
+    position: fixed; right: 16px; bottom: 0; z-index: 6;
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 9px 14px calc(9px + env(safe-area-inset-bottom)) 9px;
+    font: inherit; font-size: 14px; font-weight: 700; border: 0; border-radius: 12px 12px 0 0; cursor: pointer;
+    background: var(--ink); color: #fff; box-shadow: 0 -4px 16px rgb(29 34 41 / 0.22);
+    animation: rise 220ms ease-out;
+    transition: background-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
   }
   .to-top img { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; border: 1.5px solid #fff; }
   .to-top svg { margin-left: -2px; color: rgb(255 255 255 / 0.7); }
-  .to-top:hover { background: #000; }
+  /* Same lift as the tabs; the strip below keeps it attached to the screen edge. */
+  .to-top:hover { background: #000; transform: translateY(-2px); box-shadow: 0 -4px 16px rgb(29 34 41 / 0.22), 0 2px 0 #000; }
   .to-top:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 }
 
