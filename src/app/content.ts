@@ -355,16 +355,16 @@ export const books: Book[] = [
     note: 'More about habits than code. Taking small, reversible steps is still the advice I find most useful.',
   },
   {
-    title: 'AI Engineering',
-    author: 'Chip Huyen',
-    cover: 'images/books/ai-engineering.webp',
-    note: 'Grounded, not hype. Treats evaluation as the real work of building with foundation models.',
-  },
-  {
     title: 'A Philosophy of Software Design',
     author: 'John Ousterhout',
     cover: 'images/books/philosophy-of-software-design.webp',
     note: 'Short and practical. It changed how I think about where complexity should live.',
+  },
+  {
+    title: 'AI Engineering',
+    author: 'Chip Huyen',
+    cover: 'images/books/ai-engineering.webp',
+    note: 'Grounded, not hype. Treats evaluation as the real work of building with foundation models.',
   },
   {
     title: 'Effective TypeScript',
