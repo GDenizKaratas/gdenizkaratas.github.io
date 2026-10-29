@@ -115,14 +115,16 @@ h1, h2, h3, p, ul { margin: 0; }
 .panel-card {
   flex: 1 1 auto; min-height: 0; padding: 28px 32px 32px; display: flex; flex-direction: column;
   transform-origin: 50% 50%;
+  /* --turn is 1 going right, -1 going left: the card turns like a page in that direction. */
+  --turn: 1;
   transition: transform 280ms cubic-bezier(0.2, 0.8, 0.3, 1), box-shadow 280ms ease;
 }
 .panel-card.flip-out {
-  transform: rotateY(90deg) scale(0.97);
+  transform: rotateY(calc(var(--turn) * -90deg)) scale(0.97);
   box-shadow: 0 1px 2px rgb(29 34 41 / 0.04);
   transition: transform 200ms cubic-bezier(0.5, 0, 0.9, 0.4), box-shadow 200ms ease;
 }
-.panel-card.flip-in { transform: rotateY(-90deg) scale(0.97); transition: none; }
+.panel-card.flip-in { transform: rotateY(calc(var(--turn) * 90deg)) scale(0.97); transition: none; }
 /* CV: the card turns blue and shows the page; the download stays in reach while scrolling. */
 .panel-card.cv-card { background: var(--accent); padding: 20px 20px 24px; }
 .cv-card .scroll { scrollbar-color: rgb(255 255 255 / 0.5) transparent; }

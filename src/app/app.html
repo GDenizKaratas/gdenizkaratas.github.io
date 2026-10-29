@@ -74,7 +74,7 @@
         </button>
       </div>
 
-      <section class="card panel-card" aria-label="Work" [class.flip-out]="phase() === 'out'" [class.flip-in]="phase() === 'in'" [class.cv-card]="shown() === 'cv'">
+      <section class="card panel-card" aria-label="Work" [class.flip-out]="phase() === 'out'" [class.flip-in]="phase() === 'in'" [class.cv-card]="shown() === 'cv'" [style.--turn]="turn()">
         <div class="scroll">
           @switch (shown()) {
             @case ('projects') { <app-projects-panel /> }
