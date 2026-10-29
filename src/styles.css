@@ -219,9 +219,12 @@ h1, h2, h3, p, ul { margin: 0; }
 
 /* ---------- responsive ---------- */
 
+@keyframes rise { from { opacity: 0; transform: translateY(8px); } }
+
 @media (prefers-reduced-motion: reduce) {
-  .panel-card, .panel-card.flip-out, .ear, .btn, .cv-ear, .me-tab { transition: none; }
-  .ear:not([aria-pressed='true']):not(.is-static):hover, .cv-ear:not([aria-pressed='true']):hover, .me-tab:hover { transform: none; box-shadow: none; }
+  .panel-card, .panel-card.flip-out, .ear, .btn, .cv-ear { transition: none; }
+  .to-top { animation: none; }
+  .ear:not([aria-pressed='true']):not(.is-static):hover, .cv-ear:not([aria-pressed='true']):hover { transform: none; box-shadow: none; }
 }
 
 @media (max-width: 1039px) {
@@ -230,22 +233,20 @@ h1, h2, h3, p, ul { margin: 0; }
   /* Long stacked page: tabs stay reachable while reading the card. */
   .work > .earrow { position: sticky; top: 0; z-index: 5; padding-top: 8px; border-radius: 0 0 12px 12px; transition: background-color 160ms ease; }
   .work > .earrow.stuck { background: rgb(214 224 236 / 0.92); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
-  /* A dark tab with my portrait leads the row, so the profile is always one tap away. */
-  .work > .earrow { justify-content: flex-start; gap: 6px; }
-  .me-tab {
-    font: inherit; border: 0; cursor: pointer; white-space: nowrap; flex-shrink: 0;
-    display: inline-flex; align-items: center;
-    padding: 6px 9px 7px; border-radius: 12px 12px 0 0;
-    background: var(--ink);
-    transition: background-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+  /* Once the profile is out of view, a dark pill with my portrait leads back to it. */
+  .to-top {
+    position: fixed; right: 16px; bottom: 16px; z-index: 6; min-height: 44px;
+    display: inline-flex; align-items: center; gap: 8px; padding: 0 16px 0 8px;
+    font: inherit; font-size: 14px; font-weight: 700; border: 0; border-radius: 999px; cursor: pointer;
+    background: var(--ink); color: #fff; box-shadow: 0 4px 16px rgb(29 34 41 / 0.28);
+    animation: rise 200ms ease-out;
   }
-  .me-tab img { width: 24px; height: 24px; border-radius: 50%; object-fit: cover; border: 1.5px solid #fff; }
-  .me-tab:hover { background: #000; transform: translateY(-2px); box-shadow: 0 2px 0 #000; }
-  .me-tab:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .to-top img { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; border: 1.5px solid #fff; }
+  .to-top:hover { background: #000; }
+  .to-top:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 }
 
 @media (min-width: 1040px) {
-  .me-tab { display: none; }
   .page { height: 100vh; overflow: hidden; padding: 48px 56px; display: flex; align-items: center; }
   .stage { width: 100%; height: 100%; max-height: 810px; }
   .cv-left { display: none; }
@@ -290,7 +291,7 @@ h1, h2, h3, p, ul { margin: 0; }
   .stage { height: 640px; }
 }
 
-/* Phones: the portrait tab and four section tabs must fit on one row. */
+/* Phones: four tabs must fit on one row. */
 @media (max-width: 480px) {
   .profile, .panel-card { padding: 24px; }
   /* The portrait stays the centrepiece, a little smaller; the name sits under it. */
@@ -299,21 +300,18 @@ h1, h2, h3, p, ul { margin: 0; }
   .identity { flex: none; align-items: center; }
   .identity h1 { font-size: clamp(20px, 6.2vw, 24px); }
   .identity .role { margin-top: 6px; font-size: 18px; }
-  .work > .earrow { padding-left: 6px; padding-right: 6px; gap: 4px; }
-  .me-tab { padding: 6px 7px 7px; }
   .ears { gap: 4px; font-size: 13px; }
-  .ear { padding: 8px 7px 9px; }
-  .ear[aria-pressed='true'], .ear.is-static { padding: 11px 9px 13px; }
+  .ear { padding: 8px 9px 9px; }
+  .ear[aria-pressed='true'], .ear.is-static { padding: 11px 11px 13px; }
   .btn { padding: 0 12px; white-space: nowrap; }
 }
 
-/* Very narrow phones: give the tabs a little more room. */
+/* Very narrow phones: give the four tabs a little more room. */
 @media (max-width: 359px) {
-  .work > .earrow { padding-left: 2px; padding-right: 2px; gap: 3px; }
-  .me-tab { padding: 6px 6px 7px; }
+  .work > .earrow { padding-left: 12px; padding-right: 12px; }
   .ears { gap: 3px; font-size: 12px; }
-  .ear { padding: 8px 6px 9px; }
-  .ear[aria-pressed='true'] { padding: 11px 8px 13px; }
+  .ear { padding: 8px 8px 9px; }
+  .ear[aria-pressed='true'] { padding: 11px 10px 13px; }
 }
 
 /* Featured: image and summary side by side, the decision runs the full card width.

@@ -61,9 +61,6 @@
 
     <div class="work" #work>
       <div class="earrow" [class.stuck]="stuck()">
-        <button class="me-tab" type="button" aria-label="Back to Who am I?" (click)="toTop()">
-          <img [src]="profile.photo" alt="" width="24" height="24" />
-        </button>
         <nav class="ears" aria-label="Sections">
           @for (tab of tabs; track tab.id) {
             <button class="ear" type="button" [attr.aria-pressed]="picked() === tab.id" (click)="pick(tab.id)">
@@ -90,4 +87,9 @@
       </section>
     </div>
   </div>
+  @if (showTop()) {
+    <button class="to-top" type="button" (click)="toTop()">
+      <img [src]="profile.photo" alt="" width="28" height="28" />Who am I?
+    </button>
+  }
 </div>

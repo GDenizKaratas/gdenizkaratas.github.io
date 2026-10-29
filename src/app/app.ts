@@ -10,7 +10,7 @@ type Tab = 'projects' | 'experience' | 'writing' | 'books' | 'cv';
 
 // The card turns edge-on, the content swaps, then it comes back from the other side.
 const TURN_OUT_MS = 200;
-// Phones stack the cards; past this point the tabs stick to the top.
+// Phones stack the cards; past this point the tabs stick and a "Who am I?" button shows.
 const STACKED_MAX_WIDTH = 1039;
 
 @Component({
@@ -35,6 +35,7 @@ export class App implements OnDestroy {
   protected readonly phase = signal<'idle' | 'out' | 'in'>('idle');
   protected readonly stackOpen = signal(false);
   protected readonly stuck = signal(false);
+  protected readonly showTop = signal(false);
 
   private readonly work = viewChild.required<ElementRef<HTMLElement>>('work');
 
@@ -66,6 +67,7 @@ export class App implements OnDestroy {
   protected onScroll(): void {
     const stacked = this.stacked();
     this.stuck.set(stacked && this.work().nativeElement.getBoundingClientRect().top <= 0);
+    this.showTop.set(this.stuck());
   }
 
   protected toTop(): void {
