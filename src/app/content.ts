@@ -361,15 +361,15 @@ export const books: Book[] = [
     note: 'Short and practical. It changed how I think about where complexity should live.',
   },
   {
+    title: 'AI Engineering',
+    author: 'Chip Huyen',
+    cover: 'images/books/ai-engineering.webp',
+    note: 'Grounded, not hype. Treats evaluation as the real work of building with foundation models.',
+  },
+  {
     title: 'Effective TypeScript',
     author: 'Dan Vanderkam',
     cover: 'images/books/effective-typescript.webp',
     note: 'Less about clever types, more about making mistakes harder to write.',
-  },
-  {
-    title: 'Designing Data-Intensive Applications',
-    author: 'Martin Kleppmann',
-    cover: 'images/books/designing-data-intensive-applications.webp',
-    note: 'Dense, but worth it. It explains why systems fail and what each design choice really costs.',
   },
 ];
