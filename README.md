@@ -2,7 +2,7 @@
 
 My personal site: who I am, what I build, what I write and read.
 
-Live at **https://gdenizkaratas.github.io**
+Live at **https://gdenizkaratas.com**
 
 ## Stack
 
