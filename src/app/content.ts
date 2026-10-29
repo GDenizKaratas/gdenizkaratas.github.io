@@ -355,6 +355,12 @@ export const books: Book[] = [
     note: 'More about habits than code. Taking small, reversible steps is still the advice I find most useful.',
   },
   {
+    title: 'AI Engineering',
+    author: 'Chip Huyen',
+    cover: 'images/books/ai-engineering.webp',
+    note: 'Grounded, not hype. Treats evaluation as the real work of building with foundation models.',
+  },
+  {
     title: 'A Philosophy of Software Design',
     author: 'John Ousterhout',
     cover: 'images/books/philosophy-of-software-design.webp',
@@ -365,11 +371,5 @@ export const books: Book[] = [
     author: 'Dan Vanderkam',
     cover: 'images/books/effective-typescript.webp',
     note: 'Less about clever types, more about making mistakes harder to write.',
-  },
-  {
-    title: 'Designing Data-Intensive Applications',
-    author: 'Martin Kleppmann',
-    cover: 'images/books/designing-data-intensive-applications.webp',
-    note: 'Dense, but worth it. It explains why systems fail and what each design choice really costs.',
   },
 ];
