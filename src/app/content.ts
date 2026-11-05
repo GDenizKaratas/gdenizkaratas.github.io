@@ -187,17 +187,6 @@ export const projects: Project[] = [
     group: 'more',
   },
   {
-    name: 'LLM Provider Layer',
-    year: '2025',
-    image: 'images/projects/provider.png',
-    imageAlt: 'One layer routes to OpenAI and falls back to Anthropic',
-    summary:
-      'One interface over OpenAI and Anthropic, with retry and fallback, so an outage or rate limit does not stop the workflow.',
-    tech: [T.typescript, T.openai, T.anthropic],
-    links: [],
-    group: 'more',
-  },
-  {
     name: 'Video Automation Pipeline',
     year: '2025',
     image: 'images/projects/video.png',
@@ -254,7 +243,6 @@ export const roles: Role[] = [
       { name: 'Bank Agent Lab', text: 'AI agent for transaction risk review, with evals.' },
       { name: 'Content Pilot', text: 'Multi-tenant SaaS for scheduling AI-written posts.' },
       { name: 'Video Automation Pipeline', text: 'JSON to publish-ready video with LLM scripts and voiceovers.' },
-      { name: 'LLM Provider Layer', text: 'OpenAI and Anthropic behind one interface, with fallback.' },
       { name: 'timewent and Teach Yourself AI', text: 'Open-source tools I use every day.' },
     ],
   },
